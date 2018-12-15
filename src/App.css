@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url(images/game/level/1.jpg);
+  background-image: url(game/images/level/1.jpg);
   background-size: cover;
   height: 625px;
 }
@@ -32,4 +32,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Defender {
+    width: 60px;
+    height: 50px;
+    background-image: url(game/images/defender/4.png);
+    background-size: cover;
+    position: absolute;
+    margin-top: 20px;
 }
