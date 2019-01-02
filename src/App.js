@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
+import DefenderStar from "./game/components/defender/DefenderStar";
 import './App.css';
 
+
 class App extends Component {
-  defenderClick() {
-    console.log(1);
-  }
   render() {
     return (
       <div
           className="App"
-          onClick={this.defenderClick}
       >
-        <defender className="Defender" />
+        <DefenderStar
+          top={100}
+          left={900}
+        />
+        <DefenderStar
+          top={300}
+          left={700}
+        />
       </div>
     );
   }
