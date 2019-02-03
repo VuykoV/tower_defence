@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 
-class DefenderStar extends Component {
+export default class DefenderVawe extends Component {
   constructor(props) {
     super(props);
     this.state={
-      display: 'none'
-    }
+      display: 'none',
+      class: "energy"
+    };
     this.defenderClick = this.defenderClick.bind(this);
   }
 
   defenderClick() {
-    this.setState ({display: 'block'});
+    this.setState ({class: 'energyAnimation energy'});
     setTimeout(
-        ()=>this.setState ({display: 'none'}), 500
-    )
+        ()=>this.setState ({display: 'block'}), 1700
+    );
+    setTimeout(
+        ()=>this.setState ({display: 'none'}), 1800
+    );
+    setTimeout(
+        ()=>this.setState ({class: 'energy'}), 2000
+    );
   }
 
   render() {
@@ -21,18 +28,19 @@ class DefenderStar extends Component {
     const top = this.props.top;
 
     return (
-      <div>
-        <div
-            onClick={this.defenderClick}
-            className="DefenderStar"
-            style={{top, left}}
-        />
-        <svg width='1000' height='1000' style={{display: this.state.display}}>
-          <line x1='0' y1='0' x2={left+30} y2={top+25} stroke="violet"strokeWidth="2" />
-        </svg>
-      </div>
+        <div>
+          <div
+              onClick={this.defenderClick}
+              className="defenderStar defender"
+              style={{top, left}}
+          >
+            <div className={this.state.class}/>
+          </div>
+          <svg width='1000' height='700' style={{display: this.state.display}}>
+            <line x1='0' y1='0' x2={left+31} y2={top} stroke="cyan" strokeWidth="1" />
+          </svg>
+
+        </div>
     );
   }
 }
-
-export default DefenderStar;
